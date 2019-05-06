@@ -1,17 +1,28 @@
 \documentclass{article}
 
 \usepackage{geometry}
-\geometry{letterpaper,portrait,margin=2cm}
+\geometry{letterpaper,portrait,margin=1cm}
 
 \begin{document}
 
 \begin{table}[h!]
-    \begin{tabular}{l|r|r|p{10cm}}  % <-- alignments: 1st col left, 2nd col middle and 3rd row right
-        \textbf{Date} & \textbf{Time started} & \textbf{Time finished} & \textbf{Work done} \\
+    \begin{tabular}{l|r|r|p{15cm}}  % <-- alignments: 1st col left, 2nd col middle and 3rd row right
+        \textbf{Date} & \textbf{Start} & \textbf{End} & \textbf{Work done} \\
         \hline
-        6/5/2019    &   13:00   &   &   Started putting together project, created work log\\
-        \hline
+        6/5/2019    &   13:00   &   20:00   &   Started putting together project, created work log\\
         &   &   &   \\
+        &   &                               &   Got datasets for Camden postcodes and UK bus stops, sources listed in ./data/sources.txt \\
+        &   &   &   \\
+        &   &                               &   imported postcodes into database \\
+        &   &   &   \\
+        &   &                               &   imported trees into database \\
+        &   &   &   \\
+        &   &                               &   implemented distance function and get\_trees stored procedure to facilitate getting distance of trees from a single point. This included using the Haversine formula to convert distances between lat/lon coordinates to metres.  \\
+        &   &   &   \\
+        &   &                       &   updated stored procedure to provide all the business logic for finding nearby trees. it now accepts a postcode and a radius (in metres) and returns a bunch of trees, ordered by their distance from the postcode. \\
+        \hline
+        6/5/2019    &   &   &   \\
+        \hline
     \end{tabular}
 \end{table}
 

@@ -31,11 +31,13 @@ submission:
 *   http://datacatalogs.org/
 *   http://data.gov.uk/
 
+
 ##  existing visualisations
 
 ##  ideas
 
-*   from spec:
-    *   a game that varies its behaviour depending on the data in the data source
-    *   geographical data displayed as locations on a map
-    *   represent it graphically on a chart of other form of graph
+https://data.gov.uk/dataset/02c0321b-e9a4-4acd-97d9-d7e1914d57bb/national-statistics-postcode-lookup-camden
+
+bus stop finder
+
+postcode lookup
