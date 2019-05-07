@@ -4,8 +4,8 @@
 header("access-control-allow-origin: *");
 header("content-type: application/json; charset=utf-8");
 
-include_once './database.php';
-include_once './tree.php';
+include_once '../core/database.php';
+include_once '../core/tree.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -14,6 +14,7 @@ $tree = new Tree($db);
 
 $postcode = $_GET['postcode'];
 $radius = $_GET['radius'];
+// TODO: validate input
 
 //$statement = $tree->search("nw10ab", 50);
 $statement = $tree->search($postcode, $radius);

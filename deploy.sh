@@ -1,3 +1,3 @@
 sudo rm -r /srv/http/*
-sudo cp src/* /srv/http/
+sudo cp -r src/* /srv/http/
 
