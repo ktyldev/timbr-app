@@ -5,6 +5,9 @@ use appdev;
 drop table if exists postcodes;
 drop table if exists trees;
 
+--###############################################################################
+--# create tables                                                               #
+--###############################################################################
 create table postcodes (
     id          int             not null    auto_increment,
     postcode    varchar(8)      not null,
@@ -24,8 +27,10 @@ create table trees (
     primary key(id)
 );
 
+--###############################################################################
+--# functions                                                                   #
+--###############################################################################
 drop function if exists measure;
-
 delimiter //
 -- https://en.wikipedia.org/wiki/Haversine_formula
 create function measure(lat_a decimal(8,6), lon_a decimal(8,6), lat_b decimal(8,6), lon_b decimal(8,6))
@@ -54,17 +59,12 @@ begin
 end //
 delimiter ;
 
-drop procedure if exists get_trees_postcode;
-drop procedure if exists get_trees_point;
-
+--###############################################################################
+--# stored procedures                                                           #
+--###############################################################################
+drop procedure if exists get_trees;
 delimiter //
-create procedure get_trees_point(in lat decimal(8,6), in lon decimal(8,6), in radius float)
-begin
-end //
-delimiter ;
-
-delimiter //
-create procedure get_trees_postcode(in pc varchar(8), in radius float)
+create procedure get_trees(in pc varchar(8), in radius float)
 begin
     declare lat decimal(8,6);
     declare lon decimal(8,6);
@@ -95,3 +95,4 @@ begin
     drop temporary table if exists tmp_trees;
 end //
 delimiter ;
+
