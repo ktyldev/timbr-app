@@ -5,16 +5,47 @@
 
 <title>timbr</title>
 
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- custom styles -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- custom js -->
 <script src="main.js"></script>
 
 </head>
 <body>
 
-postcode (NW1 0AB): <input type="text" id="postcode" value="NW1 0AB"><br>
-radius (m): <input type="number" id="radius" value=50><br>
-<button id="searchButton">search</button>
-<ul id="searchResults"></ul>
+<div class="navbar sticky-top navbar-dark bg-dark">
+    <div class="navbar-brand">timbr</div>
+    <div class="form-inline">
+        <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
+        <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
+        <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
+    </div>
+</div>
+
+<div class="d-flex align-items-center content">
+
+    <button id="swipe-left" class="btn">
+        <span class="fa fa-arrow-left arrow"></span>
+    </button>
+    <div class="text-center pagination-centered card current-tree mx-auto">
+        <span class="fa fa-tree" style="font-size: 5rem;"></span>
+        <!-- <img class="card-img-top" src="..." alt="tree picture"> -->
+        <div class="card-body">
+            <h5 id="tree-name" class="card-title">tree name</h5>
+        </div>
+        <p id="tree-info" class="card-text">tree information</p>
+    </div>
+    <button id="swipe-right" class="btn">
+        <span class="fa fa-arrow-right arrow"></span>
+    </button>
+
+</div>
 
 </body>
 </html>

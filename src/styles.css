@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+.current-tree {
+    width:      18rem;
+    background-position:   center;
+}
+
+.content {
+    margin-left:            10%;
+    width:                  80%;
+    height:                 100%;
+    background-position:    center;
+    background-size:        cover;
+}
+
+.arrow {
+    font-size:  10rem;
+}
+
