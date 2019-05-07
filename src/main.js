@@ -6,13 +6,17 @@ function serverUrl() {
 
 $(function() {
     function makeTrees(treeData) {
+
+        var root = $("#searchResults");
+        root.empty();
+
         console.log(treeData.count);
         for (var i = 0; i < treeData.count; i++) {
             var tree = treeData.trees[i];
             var name = tree.commonname;
             var distance = tree.distance;
 
-            console.log(name + " is " + distance + " metres away");
+            root.append("<li>" + name + " is " + distance + " metres away</li>");
         }
     }
 
