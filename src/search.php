@@ -12,11 +12,16 @@ $db = $database->getConnection();
 
 $tree = new Tree($db);
 
-$statement = $tree->search("nw10ab", 50);
+$postcode = $_GET['postcode'];
+$radius = $_GET['radius'];
+
+//$statement = $tree->search("nw10ab", 50);
+$statement = $tree->search($postcode, $radius);
 $count = $statement->rowCount();
 
 if ($count > 0) {
     $trees=array();
+    $trees["count"]=$count;
     $trees["trees"]=array();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
