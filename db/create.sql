@@ -81,6 +81,7 @@ begin
 
     create temporary table tmp_trees
     select
+        id,
         commonname,
         longitude,
         latitude,

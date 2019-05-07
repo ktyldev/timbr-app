@@ -11,7 +11,7 @@
         \hline
         6/5/2019    &   13:00   &   20:00   &   Started putting together project, created work log\\
         &   &   &   \\
-        &   &                               &   Got datasets for Camden postcodes and UK bus stops, sources listed in ./data/sources.txt \\
+        &   &                               &   Got datasets for Camden postcodes and UK bus trees, sources listed in ./data/sources.txt \\
         &   &   &   \\
         &   &                               &   imported postcodes into database \\
         &   &   &   \\
@@ -19,10 +19,13 @@
         &   &   &   \\
         &   &                               &   implemented distance function and get\_trees stored procedure to facilitate getting distance of trees from a single point. This included using the Haversine formula to convert distances between lat/lon coordinates to metres.  \\
         &   &   &   \\
-        &   &                       &   updated stored procedure to provide all the business logic for finding nearby trees. it now accepts a postcode and a radius (in metres) and returns a bunch of trees, ordered by their distance from the postcode. \\
+        &   &                               &   updated stored procedure to provide all the business logic for finding nearby trees. it now accepts a postcode and a radius (in metres) and returns a bunch of trees, ordered by their distance from the postcode. \\
         \hline
-        6/5/2019    &   &   &   \\
+        6/5/2019    &   14:30   &           &   Set up apache server + php on local dev machine\\
+        &   &   &   \\
+        &   &                               &   created search.php, which returns values from a stored procedure in the database.\\
         \hline
+        &   &   &   \\
     \end{tabular}
 \end{table}
 
