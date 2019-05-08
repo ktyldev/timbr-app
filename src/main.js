@@ -34,8 +34,7 @@ $(function() {
         }
     }
 
-    function swipe()
-    {
+    function swipe() {
         index++;
 
         var show = index < trees.length;
@@ -48,9 +47,19 @@ $(function() {
     }
 
     function updateCard(tree) {
-        $("#tree-common-name").text(tree.name);  
-        $("#tree-scientific-name").text("scientific name");
-        $("#tree-info").text(tree.distance + " metres away");
+        console.log("showing tree " + tree.id);
+        $("#tree-common-name").text(tree.commonname);  
+        $("#tree-scientific-name").text(tree.scientificname);
+        $("#tree-distance").text(tree.distance + " metres away");
+
+        var rating = "this tree has no ratings yet - be the first!";
+        if (tree.rating) {
+            rating = tree.rating + "/5";
+        }
+        $("#tree-rating").text(rating);
+
+        $("#tree-pollution").text(null + "");
+        $("#tree-quote").text('"i guess you could say im branching out"');
     }
 
     function makeTrees(treeData) {
@@ -60,11 +69,7 @@ $(function() {
         setTreeCardsVisibility(treeData.count != 0);
 
         for (var i = 0; i < treeData.count; i++) {
-            var tree = treeData.trees[i];
-            trees.push({
-                name:       tree.commonname,
-                distance:   tree.distance
-            });
+            trees.push(treeData.trees[i]);
         }
 
         updateCard(trees[0]);
@@ -77,7 +82,8 @@ $(function() {
 
         postcode = postcode.replace(" ", "");
 
-        $.get(serverUrl() + "search.php?postcode=" + postcode + "&radius=" + radius)
+        var url = serverUrl() + "search.php?postcode=" + postcode + "&radius=" + radius;
+        $.get(url)
             .done(makeTrees)
             .fail(function(status) { alert(":("); });
     }

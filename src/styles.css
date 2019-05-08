@@ -15,10 +15,6 @@ html, body {
     background-size:        cover;
 }
 
-.arrow {
-    font-size:  10rem;
-}
-
 .nav.nav-center {
     margin: 0;
     float:  none;
@@ -28,6 +24,3 @@ html, body {
     text-align: center;
 }
 
-.hint-text {
-    font-size: 2em;
-}

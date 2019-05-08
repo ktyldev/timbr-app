@@ -13,6 +13,9 @@
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- custom js -->
 <script src="main.js"></script>
 
@@ -20,47 +23,49 @@
 <body>
 
 <div class="navbar fixed-top navbar-dark bg-dark">
-    <div class="navbar-brand text-bold">timbr</div>
-    <div class="mx-auto order-0">
-        <span class="navbar-brand font-italic text-muted">turning over a new leaf in camden...</span>
+    <div class="navbar-brand text-bold"><span class="fa fa-leaf"></span> timbr</div>
+    <div class="form-inline">
+        <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
+        <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
+        <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
     </div>
-</div>
-
-<div class="navbar navbar-expand-md fixed-bottom navbar-dark bg-dark">
-    <div class="mx-auto order-0">
-        <div class="form-inline">
-            <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
-            <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
-            <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
-        </div>
-    </div>
+    <span class="text-muted font-italic">note - only postcodes in camden, london will work. NW1 0AB, for an example.</span>
 </div>
 
 <div class="d-flex align-items-center content">
-    <button id="swipe-left" class="btn">
-        <span class="fa fa-arrow-left arrow"></span>
-    </button>
     <div id="tree-card" class="text-center pagination-centered card current-tree mx-auto">
-        <span class="fa fa-tree" style="font-size: 5rem;"></span>
         <!-- <img class="card-img-top" src="..." alt="tree picture"> -->
         <div class="card-body">
+            <span class="fa fa-tree" style="font-size: 5rem;"></span>
             <h5 id="tree-common-name" class="card-title">tree common name</h5>
             <h6 id="tree-scientific-name" class="card-subtitle text-muted font-italic">tree scientific name</h6>
-        </div>
-        
-        <div id="tree-info" class="card-text">
-            <p>tree pollution info</p>
-            <p>tree rating</p>
-            <p>tree quote</p>
+            <div class="card-text">
+                <p><span="tree-distance"></span></p>
+                <p>tree pollution info: <span id="tree-pollution"></span></p>
+                <p>tree rating: <span id="tree-rating"></span></p>
+                <p>tree quote: <span id="tree-quote" class="text-muted font-italic"></span></p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <button type="button" id="swipe-left" class="btn btn-danger btn-block">
+                            -1
+                        </button>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" id="swipe-right" class="btn btn-success btn-block">
+                            +1
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <button id="swipe-right" class="btn">
-        <span class="fa fa-arrow-right arrow"></span>
-    </button>
     <div id="tree-cards-empty" class="pagination-centred mx-auto">
         <p class="hint-text text-muted font-italic">search for trees down below!</p>
     </div>
 </div>
+
 
 </body>
 </html>
