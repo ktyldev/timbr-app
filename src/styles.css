@@ -3,8 +3,8 @@ html, body {
 }
 
 .current-tree {
-    width:      18rem;
-    background-position:   center;
+    width:                  18rem;
+    background-position:    center;
 }
 
 .content {
@@ -19,3 +19,15 @@ html, body {
     font-size:  10rem;
 }
 
+.nav.nav-center {
+    margin: 0;
+    float:  none;
+}
+
+.navbar-inner {
+    text-align: center;
+}
+
+.hint-text {
+    font-size: 2em;
+}

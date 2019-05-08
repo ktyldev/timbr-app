@@ -24,6 +24,7 @@ create table trees (
     pollutionremoval    decimal(6,1)    null,
     longitude           decimal(8,6)    not null,
     latitude            decimal(8,6)    not null,
+    rating              decimal(2,1)    null,
     primary key(id)
 );
 
@@ -82,9 +83,11 @@ begin
     create temporary table tmp_trees
     select
         id,
+        scientificname,
         commonname,
         longitude,
         latitude,
+        rating,
         measure(latitude, longitude, lat, lon) as 'distance'
     from trees;
 

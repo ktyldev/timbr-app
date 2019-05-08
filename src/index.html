@@ -19,32 +19,47 @@
 </head>
 <body>
 
-<div class="navbar sticky-top navbar-dark bg-dark">
-    <div class="navbar-brand">timbr</div>
-    <div class="form-inline">
-        <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
-        <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
-        <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
+<div class="navbar fixed-top navbar-dark bg-dark">
+    <div class="navbar-brand text-bold">timbr</div>
+    <div class="mx-auto order-0">
+        <span class="navbar-brand font-italic text-muted">turning over a new leaf in camden...</span>
+    </div>
+</div>
+
+<div class="navbar navbar-expand-md fixed-bottom navbar-dark bg-dark">
+    <div class="mx-auto order-0">
+        <div class="form-inline">
+            <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
+            <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
+            <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
+        </div>
     </div>
 </div>
 
 <div class="d-flex align-items-center content">
-
     <button id="swipe-left" class="btn">
         <span class="fa fa-arrow-left arrow"></span>
     </button>
-    <div class="text-center pagination-centered card current-tree mx-auto">
+    <div id="tree-card" class="text-center pagination-centered card current-tree mx-auto">
         <span class="fa fa-tree" style="font-size: 5rem;"></span>
         <!-- <img class="card-img-top" src="..." alt="tree picture"> -->
         <div class="card-body">
-            <h5 id="tree-name" class="card-title">tree name</h5>
+            <h5 id="tree-common-name" class="card-title">tree common name</h5>
+            <h6 id="tree-scientific-name" class="card-subtitle text-muted font-italic">tree scientific name</h6>
         </div>
-        <p id="tree-info" class="card-text">tree information</p>
+        
+        <div id="tree-info" class="card-text">
+            <p>tree pollution info</p>
+            <p>tree rating</p>
+            <p>tree quote</p>
+        </div>
     </div>
     <button id="swipe-right" class="btn">
         <span class="fa fa-arrow-right arrow"></span>
     </button>
-
+    <div id="tree-cards-empty" class="pagination-centred mx-auto">
+        <p class="hint-text text-muted font-italic">search for trees down below!</p>
+    </div>
 </div>
 
 </body>

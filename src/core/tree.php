@@ -4,7 +4,6 @@ class Tree {
 
     public $id;
     public $commonname;
-    //public $distance;
 
     public function __construct($db){
         $this->conn = $db; 
