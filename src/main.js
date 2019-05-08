@@ -34,7 +34,9 @@ $(function() {
         }
     }
 
-    function swipe() {
+    function vote(dir) {
+        var dismissedTree = trees[index];
+
         index++;
 
         var show = index < trees.length;
@@ -44,10 +46,30 @@ $(function() {
         }
 
         updateCard(trees[index]);
+
+        var url = serverUrl() + "vote.php";
+        $.post(url, {
+            id:     dismissedTree.id,
+            vote:   dir
+        })
+        .done(function () { console.log("voted successfully"); })
+        .fail(function () { alert("voting unsuccessful"); });
+
+        switch (dir) {
+            case 1:
+                console.log("upvoted tree " + dismissedTree.id);
+                break;
+            case -1:
+                console.log("downboted tree " + dismissedTree.id);
+                break;
+            default:
+                console.error("halp");
+                break;
+        }
     }
 
     function updateCard(tree) {
-        console.log("showing tree " + tree.id);
+        console.log(tree);
         $("#tree-common-name").text(tree.commonname);  
         $("#tree-scientific-name").text(tree.scientificname);
         $("#tree-distance").text(tree.distance + " metres away");
@@ -58,7 +80,12 @@ $(function() {
         }
         $("#tree-rating").text(rating);
 
-        $("#tree-pollution").text(null + "");
+        var pollution = "this tree has no pollution removal data, come back later!";
+        if (tree.pollution) {
+            pollution = tree.pollution + "g"; 
+        }
+        $("#tree-pollution").text(pollution);
+
         $("#tree-quote").text('"i guess you could say im branching out"');
     }
 
@@ -90,8 +117,8 @@ $(function() {
 
     // add handlers
     $("#searchButton").click(search);
-    $("#swipe-left").click(swipe);
-    $("#swipe-right").click(swipe);
+    $("#upvote").click(() => vote(1));
+    $("#downvote").click(() => vote(-1));
 
     // first load, nothing has been search yet so hide the cards 
     setTreeCardsVisibility(false);

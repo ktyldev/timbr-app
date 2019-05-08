@@ -29,7 +29,7 @@
         <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
         <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
     </div>
-    <span class="text-muted font-italic">note - only postcodes in camden, london will work. NW1 0AB, for an example.</span>
+    <span class="text-muted font-italic">note - only postcodes in camden, london will work. NW1 0AB, for example.</span>
 </div>
 
 <div class="d-flex align-items-center content">
@@ -40,7 +40,7 @@
             <h5 id="tree-common-name" class="card-title">tree common name</h5>
             <h6 id="tree-scientific-name" class="card-subtitle text-muted font-italic">tree scientific name</h6>
             <div class="card-text">
-                <p><span="tree-distance"></span></p>
+                <p><span id="tree-distance"></span></p>
                 <p>tree pollution info: <span id="tree-pollution"></span></p>
                 <p>tree rating: <span id="tree-rating"></span></p>
                 <p>tree quote: <span id="tree-quote" class="text-muted font-italic"></span></p>
@@ -48,12 +48,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <button type="button" id="swipe-left" class="btn btn-danger btn-block">
+                        <button type="button" id="downvote" class="btn btn-danger btn-block">
                             -1
                         </button>
                     </div>
                     <div class="col-sm">
-                        <button type="button" id="swipe-right" class="btn btn-success btn-block">
+                        <button type="button" id="upvote" class="btn btn-success btn-block">
                             +1
                         </button>
                     </div>

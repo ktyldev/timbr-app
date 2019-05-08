@@ -32,6 +32,7 @@ if ($count > 0) {
             "scientificname"    => $row['scientificname'],
             "commonname"        => $row['commonname'],
             "distance"          => $row['distance'],
+            "pollution"         => $row['pollutionremoval'],
             "rating"            => $row['rating']
         );
 

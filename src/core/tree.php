@@ -18,5 +18,14 @@ class Tree {
 
         return $statement;
     }
+
+    public function vote($id, $vote) {
+        $sql = "call vote(:id,:vote)"; 
+
+        $statement = $this->conn->prepare($sql);
+        $statement->execute(array(':id' => $id, ':vote' => $vote));
+
+        return $statement;
+    }
 }
 ?>

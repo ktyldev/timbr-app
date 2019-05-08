@@ -24,7 +24,8 @@ create table trees (
     pollutionremoval    decimal(6,1)    null,
     longitude           decimal(8,6)    not null,
     latitude            decimal(8,6)    not null,
-    rating              decimal(2,1)    null,
+    rating              decimal(4,3)    null,
+    votes               int             not null,
     primary key(id)
 );
 
@@ -63,6 +64,35 @@ delimiter ;
 --###############################################################################
 --# stored procedures                                                           #
 --###############################################################################
+drop procedure if exists vote;
+delimiter //
+create procedure vote(in treeid int, in vote int)
+begin
+    declare newrating   decimal(4,3);
+    declare oldrating   decimal(4,3);
+    declare votes       int;
+    
+    select
+        t.rating,
+        t.votes
+    from trees t
+    where t.id=treeid
+    into
+        oldrating,
+        votes;
+
+    set votes = votes + 1;
+    set newrating = IFNULL(oldrating, 0.0) + cast(vote as decimal(4,3)) / cast(votes as decimal(4,3));
+    
+    update trees
+    set
+        votes=votes,
+        rating=newrating
+    where id=treeid;
+
+end //
+delimiter ;
+
 drop procedure if exists get_trees;
 delimiter //
 create procedure get_trees(in pc varchar(8), in radius float)
