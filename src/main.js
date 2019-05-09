@@ -1,8 +1,5 @@
-var server = "http://localhost:80";
-
-
 function serverUrl() {
-    return server + "/api/";
+    return "./api/";
 }
 
 $(function() {
