@@ -115,6 +115,7 @@ begin
         id,
         scientificname,
         commonname,
+        pollutionremoval,
         longitude,
         latitude,
         rating,
