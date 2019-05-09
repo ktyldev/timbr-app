@@ -8,6 +8,20 @@ $(function() {
     var count = 0;
     var trees = [];
 
+	function getQuote() {
+		var quotes = [
+			"i'll tree you later",
+			"i'm turning over a new leaf",
+			"not ready to uproot myself just yet",
+			"i guess you could say i'm branching out",
+			"i've still got room to grow!",
+			"hoping for a seed of something",
+			"i'm told my bark is stronger than my bite"
+		];		
+
+		return quotes[Math.floor(quotes.length * Math.random())];
+	}
+
     function setTreeCardsVisibility(visibility) {
         var cardElements = [
             $("#swipe-left"),
@@ -69,14 +83,14 @@ $(function() {
         console.log(tree);
         $("#tree-common-name").text(tree.commonname);  
         $("#tree-scientific-name").text(tree.scientificname);
-        $("#tree-distance").text(tree.distance + " metres away");
+        $("#tree-distance").text(Number(tree.distance).toPrecision(2) + " metres away");
 
         var rating = "this tree has no ratings yet - be the first!";
         if (tree.upvotes != 0 || tree.downvotes != 0) {
 			var total = Number(tree.upvotes) + Number(tree.downvotes);	
 
 			var totalRating = 2.5 * (1 + (tree.upvotes - tree.downvotes) / total);
-			totalRating = totalRating.toPrecision(2);
+			totalRating = Math.round(totalRating);
 
             //rating = (tree.rating * 2.5 + 2.5).toPrecision(1) + "/5";
 			rating = totalRating + "/5";
@@ -89,7 +103,7 @@ $(function() {
         }
         $("#tree-pollution").text(pollution);
 
-        $("#tree-quote").text('"i guess you could say im branching out"');
+        $("#tree-quote").text('"' + getQuote() + '"');
     }
 
     function makeTrees(treeData) {

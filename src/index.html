@@ -22,14 +22,14 @@
 </head>
 <body>
 
-<div class="navbar fixed-top navbar-dark bg-dark">
-    <div class="navbar-brand text-bold"><span class="fa fa-leaf"></span> timbr</div>
+<div class="navbar fixed-top navbar-light bg-light" style="height: 5rem">
+    <div class="navbar-brand text-bold"><img src="img/logo.png" style="height:3rem"></span> timbr</div>
+    <span class="font-italic">rate trees near a postcode! note - only postcodes in camden, london will work. NW1 0AB, for example.</span>
     <div class="form-inline">
         <input id="postcode" class="form-control mr-sm-2" type="text" placeholder="postcode" aria-label="postcode">
-        <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius" aria-label="radius">
-        <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton">search</button>
+        <input id="radius" class="form-control mr-sm-2" type="number" placeholder="radius (metres)" aria-label="radius">
+        <button class="btn btn-outline-dark my-2 my-sm-0" id="searchButton">search</button>
     </div>
-    <span class="text-muted font-italic">note - only postcodes in camden, london will work. NW1 0AB, for example.</span>
 </div>
 
 <div class="d-flex align-items-center content">
@@ -37,13 +37,13 @@
         <!-- <img class="card-img-top" src="..." alt="tree picture"> -->
         <div class="card-body">
             <span class="fa fa-tree" style="font-size: 5rem;"></span>
-            <h5 id="tree-common-name" class="card-title">tree common name</h5>
-            <h6 id="tree-scientific-name" class="card-subtitle text-muted font-italic">tree scientific name</h6>
+            <h2 id="tree-common-name" class="card-title">tree common name</h2>
+            <h3 id="tree-scientific-name" class="card-subtitle text-muted font-italic">tree scientific name</h3>
             <div class="card-text">
-                <p><span id="tree-distance"></span></p>
-                <p><span id="tree-pollution" class="text-muted font-italic"></span></p>
-                <p><span id="tree-rating"></span></p>
-                <p><span id="tree-quote" class="text-muted font-italic"></span></p>
+                <h4 id="tree-distance"></h4>
+                <h4 id="tree-pollution" class="text-muted font-italic"></h4>
+                <h4 id="tree-rating"></h4>
+                <h4 id="tree-quote" class="text-muted font-italic"></h4>
             </div>
             <div class="container">
                 <div class="row">
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div id="tree-cards-empty" class="pagination-centred mx-auto">
-        <p class="hint-text text-muted font-italic">search for trees down below!</p>
+	<img src="img/logo.png" style="height:10rem">
     </div>
 </div>
 
