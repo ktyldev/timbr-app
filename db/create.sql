@@ -24,8 +24,8 @@ create table trees (
     pollutionremoval    decimal(6,1)    null,
     longitude           decimal(8,6)    not null,
     latitude            decimal(8,6)    not null,
-    rating              decimal(4,3)    null,
-    votes               int             not null,
+	upvotes				int				not null,
+	downvotes			int				not null,
     primary key(id)
 );
 
@@ -68,28 +68,26 @@ drop procedure if exists vote;
 delimiter //
 create procedure vote(in treeid int, in vote int)
 begin
-    declare newrating   decimal(4,3);
-    declare oldrating   decimal(4,3);
-    declare votes       int;
+	declare up		int;
+	declare	down	int;
     
     select
-        t.rating,
-        t.votes
+		t.upvotes,
+		t.downvotes
     from trees t
     where t.id=treeid
     into
-        oldrating,
-        votes;
+		up,
+		down;
 
-    set votes = votes + 1;
-    set newrating = IFNULL(oldrating, 0.0) + cast(vote as decimal(4,3)) / cast(votes as decimal(4,3));
+	set up = up + if(vote=1,1,0);
+	set down = down + if(vote=-1,1,0);
     
     update trees
     set
-        votes=votes,
-        rating=newrating
+        upvotes=up,
+        downvotes=down
     where id=treeid;
-
 end //
 delimiter ;
 
@@ -118,7 +116,8 @@ begin
         pollutionremoval,
         longitude,
         latitude,
-        rating,
+        upvotes,
+		downvotes,
         measure(latitude, longitude, lat, lon) as 'distance'
     from trees;
 

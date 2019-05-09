@@ -1,3 +1,5 @@
-sudo rm -r /srv/http/*
-sudo cp -r src/* /srv/http/
+path="/var/www/html/"
+
+sudo rm -r "$path*"
+sudo cp -r src/* $path
 

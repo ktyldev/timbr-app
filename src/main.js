@@ -72,14 +72,20 @@ $(function() {
         $("#tree-distance").text(tree.distance + " metres away");
 
         var rating = "this tree has no ratings yet - be the first!";
-        if (tree.rating) {
-            rating = tree.rating + "/5";
+        if (tree.upvotes != 0 || tree.downvotes != 0) {
+			var total = Number(tree.upvotes) + Number(tree.downvotes);	
+
+			var totalRating = 2.5 * (1 + (tree.upvotes - tree.downvotes) / total);
+			totalRating = totalRating.toPrecision(2);
+
+            //rating = (tree.rating * 2.5 + 2.5).toPrecision(1) + "/5";
+			rating = totalRating + "/5";
         }
         $("#tree-rating").text(rating);
 
         var pollution = "this tree has no pollution removal data, come back later!";
-        if (tree.pollution) {
-            pollution = tree.pollution + "g"; 
+        if (tree.pollution && tree.pollution != 0) {
+			pollution = "this tree has removed " + tree.pollution + "g of pollution from the atmosphere";
         }
         $("#tree-pollution").text(pollution);
 

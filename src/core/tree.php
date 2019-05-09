@@ -2,9 +2,6 @@
 class Tree {
     private $conn;
 
-    public $id;
-    public $commonname;
-
     public function __construct($db){
         $this->conn = $db; 
     }

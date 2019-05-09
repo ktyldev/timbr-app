@@ -26,14 +26,14 @@ if ($count > 0) {
     $trees["trees"]=array();
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-
         $tree_item=array(
             "id"                => $row['id'],
             "scientificname"    => $row['scientificname'],
             "commonname"        => $row['commonname'],
             "distance"          => $row['distance'],
             "pollution"         => $row['pollutionremoval'],
-            "rating"            => $row['rating']
+	    "upvotes"		=> $row['upvotes'],
+	    "downvotes"		=> $row['downvotes'],
         );
 
         array_push($trees["trees"], $tree_item);

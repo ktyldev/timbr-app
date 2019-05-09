@@ -5,7 +5,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "appdev";
     private $username = "root";
-    private $password = "";
+    private $password = "N7P8R3xfZmK7uX";
 
     public function getConnection() {
         $this->conn = null;
